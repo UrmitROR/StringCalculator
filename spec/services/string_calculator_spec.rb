@@ -25,5 +25,9 @@ RSpec.describe StringCalculatorService do
     it "supports custom delimiters along with newlines" do
       expect(StringCalculatorService.add("//;\n1;2")).to eq(3)
     end
+
+    it "throws an exception for negative numbers" do
+      expect { StringCalculatorService.add("-1,2,-3") }.to raise_error("negative numbers not allowed -1, -3")
+    end
   end
 end
